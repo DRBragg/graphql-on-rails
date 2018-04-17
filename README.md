@@ -2,6 +2,10 @@
 
 ![](./public/screenshot.png)
 
+## Join our Slack
+
+:point_right: [http://bit.ly/graphql-on-rails-slack](http://bit.ly/graphql-on-rails-slack)
+
 ## Tech Stack
 
 * Ruby on Rails 5.2
@@ -84,4 +88,49 @@ TypeError: Cannot read property 'compile' of undefined
 ```
 > bundle
 > bundle exec rails s
+```
+
+## Adding react-router-dom
+
+```
+> yarn add react-router-dom
+```
+
+## Adding GraphiQL
+
+```
+> yarn add graphiql
+```
+
+## Adding models
+
+```
+> bundle exec rails g model user name:string
+> bundle exec rails g model post user:references title:string description:string content:text
+> bundle exec rake db:create db:migrate db:seed
+```
+
+## Adding GraphQL
+
+```
+> bundle exec rails generate graphql:install
+```
+
+## Adding Apollo Client
+
+```
+> yarn add apollo-boost
+> yarn add react-apollo
+```
+
+## Adding Flow
+
+```
+> yarn add -D apollo-codegen
+> yarn graphql
+
+> yarn add -D babel-preset-flow
+> yarn add -D flow-bin
+> flow init
+> yarn flow
 ```

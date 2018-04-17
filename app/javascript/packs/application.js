@@ -1,10 +1,31 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-//
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+// Run this example by adding <%= javascript_pack_tag 'hello_react' %> to the head of your layout file,
+// like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
+// of the page.
 
-console.log('Hello World from Webpacker')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
+
+import Home from '../routes/home'
+import Post from '../routes/post'
+import Graphiql from '../routes/graphiql'
+
+const apolloClient = new ApolloClient({ uri: 'http://localhost:3001/graphql' })
+
+const App = () => (
+  <ApolloProvider client={apolloClient}>
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/posts/:id" component={Post} />
+        <Route exact path="/graphiql" component={Graphiql} />
+      </div>
+    </Router>
+  </ApolloProvider>
+)
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(<App />, document.body.appendChild(document.createElement('div')))
+})

@@ -42,7 +42,10 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    apollo-tracing (1.5.0)
+      graphql (>= 1.7.0, < 2)
     arel (9.0.0)
+    batch-loader (1.2.1)
     bootsnap (1.1.8)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -54,6 +57,11 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphql (1.8.0.pre9)
+    graphql-errors (0.2.0)
+      graphql (>= 1.6.0, < 2)
+    graphql-guard (1.0.0)
+      graphql (>= 1.6.0, < 2)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     listen (3.1.5)
@@ -146,7 +154,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apollo-tracing
+  batch-loader
   bootsnap (>= 1.1.0)
+  graphql (~> 1.8.0.pre9)
+  graphql-errors
+  graphql-guard
   listen (>= 3.0.5, < 3.2)
   pry-byebug
   puma (~> 3.11)
